@@ -11,12 +11,17 @@ Stampare Nome, Cognome e la media dei voti di ogni alunno. -->
     [
     'nome'=> 'Antonio',
     'cognome' => 'Bho',
-    'voti' => [10,8,5,7,6],
+    'voti' => [5,2,5,1,6],
     ],
     [
     'nome'=> 'Turuzzu',
-    'cognome' => 'caputo',
-    'voti' => [10,8,5,7,6],
+    'cognome' => 'Caputo',
+    'voti' => [6,6,6,7,6],
+    ],
+    [
+    'nome'=> 'Andrea',
+    'cognome' => 'Romeo',
+    'voti' => [6,6,6,7,6],
     ],
   ];
 
@@ -24,13 +29,12 @@ Stampare Nome, Cognome e la media dei voti di ogni alunno. -->
     $somma = 0;
     for ($j=0; $j < count($classe[$i]['voti']); $j++) {
         $somma += $classe[$i]['voti'][$j];
-
     }
     ?>
     <ul>
-      <li> <?= $classe[$i]['nome'] ?> </li>
-      <li> <?= $classe[$i]['cognome'] ?> </li>
-      <li> <?= $somma / $j ?> </li>
+      <li> <?="Il nome dello studente è: ". $classe[$i]['nome'] ?> </li>
+      <li> <?= "Il cognome dello studente è: ".$classe[$i]['cognome'] ?> </li>
+      <li> <?= "la media  dello studente è: ". $somma / count($classe[$i]['voti']) ?> </li>
     </ul>
   <?php
   }
