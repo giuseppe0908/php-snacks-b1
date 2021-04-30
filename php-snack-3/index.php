@@ -44,20 +44,19 @@ $posts = [
     ],
 ];
 //scorro le chiavi dell'array
-foreach ($posts as $key => $value) {
-  ?>
-    <div class="">
-      <?= $key ?>
-    </div>
-    <?php
-    for ($i=0; $i < count($value) ; $i++) {
-      ?>
-      <div class="">
-        <p><?= $value[$i]['title']?></p>
-        <p><?=  $value[$i]['author']?></p>
-        <p><?=$value[$i]['text']?></p>
-      </div>
+$keys = array_keys($posts);
+// var_dump($keys);
+  for ($i=0; $i < count($keys) ; $i++) {
+    // var_dump($posts[$keys[$i]]);
+    $post = $posts[$keys[$i]];
+    for ($j=0; $j < count($post) ; $j++) { ?>
+      <ul>
+        <li><?= $keys[$i] ?></li>
+        <li><?= $post[$j]['title'] ?></li>
+        <li><?= $post[$j]['author'] ?></li>
+        <li><?= $post[$j]['text'] ?></li>
+      </ul>
       <?php
     }
-}
-?>
+  }
+ ?>

@@ -7,19 +7,16 @@ age sia un numero.Se tutto è ok stampare
 <?php
   $name = $_GET['name'];
   $mail = $_GET['mail'];
-  $validate_email = filter_var($mail, FILTER_VALIDATE_EMAIL);
+  // $validate_email = filter_var($mail, FILTER_VALIDATE_EMAIL);
   $chiocciola = strpos($mail, '@');
   $punto =  strpos($mail, '.');
   $age = $_GET['age'];
   $validate_age = filter_var($age,FILTER_VALIDATE_INT);
   var_dump($name,$mail,$age);
-  // if (strlen($name) <= 3){
-  //   var_dump(cazzo);
-  // }
 
-  if (strlen($name) > 3 && ($validate_email && $chiocciola && $punto) && ($validate_age)) {?>
+  if (strlen($name) > 3 && ($chiocciola!== false && $punto!== false) && ($validate_age)) {?>
     <p><?= 'il nome è:'. $name .'<br>'. $mail .'<br>' . $age ?></p><?php
-  }elseif ($validate_email === false || $chiocciola === false || $punto === false) {?>
+  }elseif ( $chiocciola === false || $punto === false) {?>
     <p>email non valida</p><?php
   }elseif (strlen($name) <= 3 ) {?>
     <p>il nome è  troppo corto</p><?php
